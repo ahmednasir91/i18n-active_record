@@ -93,7 +93,7 @@ module I18n
 
           if result.empty?
             nil
-          elsif result.first.key == key
+          elsif result.first.key.casecmp(key) == 0
             result.first.value
           else
             result = result.inject({}) do |hash, translation|
