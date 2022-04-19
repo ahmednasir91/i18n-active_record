@@ -71,8 +71,7 @@ module I18n
                    'You can change the internal separator by overwriting FLATTEN_SEPARATOR.'
             end
 
-            namespace = "#{keys.last}#{I18n::Backend::Flatten::FLATTEN_SEPARATOR}%"
-            where("#{column_name} IN (?) OR #{column_name} LIKE ?", keys, namespace)
+            where("#{column_name} IN (?)", keys)
           end
 
           def available_locales
